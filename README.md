@@ -1,4 +1,4 @@
-# Candidate Ranking API
+# Candidate Rank Ckecker
 
 ## Overview
 This FastAPI-based application ranks job candidates by comparing their resumes against a given job description (JD). It utilizes Natural Language Processing (NLP) techniques to extract candidate names from resumes and computes similarity scores using Sentence Transformers. The results include ranked candidates with their confidence scores and resume links.
