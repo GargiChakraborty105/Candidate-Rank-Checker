@@ -86,5 +86,5 @@ uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 This project is licensed under the MIT License.
 
 ## Author
-Your Name - [Your GitHub](https://github.com/yourusername)
+Your Name - [Your GitHub](https://github.com/GargiChakraborty105)
 
