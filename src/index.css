@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  text-align: center;
+  background-color: #ffffff;
+  min-height: 100vh;
+  min-width: 100vw;
+  max-height: max-content;
+}
+
+.app.dark-mode {
+  background-color: #232831;
+  color: #000000;
+}

@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.app-header {
+  background-color: #419bf9;
+  padding: 20px;
+  color: white;
+  /* display: inline; */
+}
+
+.upload-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px;
+}
+
+
+.submit-button {
+  border: 1px solid #419bf9;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 20px;
+  font-size: 16px;
+  background-color: #419bf9;
+  border: none;
+  color: white
+  
+}
+
+.submit-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.results-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,38 @@
+.candidate-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .candidate-card:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+  }
+
+  .candidate-card button {
+    border: 1px solid #419bf9;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 16px;
+    background-color: #419bf9;
+    border: none;
+    color: white
+  }
+
+  .candidate-card button:hover{
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+
+  }
+  
+  .candidate-card.dark-mode {
+    background-color: #222a34;
+    color: #f1f1f1; /* Text color for dark mode */
+  }
+  
+  .candidate-card.dark-mode:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #383f57;
+  }
