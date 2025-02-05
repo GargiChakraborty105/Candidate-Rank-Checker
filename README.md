@@ -20,7 +20,7 @@ This FastAPI-based application ranks job candidates by comparing their resumes a
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/candidate-ranking-app.git
+   git clone https://github.com/GargiChakraborty105/candidate-ranking-app.git
    cd candidate-ranking-app
    ```
 2. Create and activate a virtual environment:
