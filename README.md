@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Candidate Ranking API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This FastAPI-based application ranks job candidates by comparing their resumes against a given job description (JD). It utilizes Natural Language Processing (NLP) techniques to extract candidate names from resumes and computes similarity scores using Sentence Transformers. The results include ranked candidates with their confidence scores and resume links.
 
-## Available Scripts
+## Features
+- Accepts a JD PDF and multiple resume PDFs as input.
+- Extracts text from PDFs using `PyPDF2`.
+- Embeds text using `SentenceTransformers` (`all-MiniLM-L6-v2` model).
+- Computes cosine similarity between the JD and resumes.
+- Uses `spaCy` Named Entity Recognition (NER) to extract candidate names.
+- Ranks candidates based on similarity scores.
+- Returns structured JSON output with names, resume links, confidence scores, and ranks.
 
-In the project directory, you can run:
+## Installation
+### Prerequisites
+- Python 3.8+
+- Virtual environment (optional but recommended)
 
-### `npm start`
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/candidate-ranking-app.git
+   cd candidate-ranking-app
+   ```
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Download the spaCy model:
+   ```bash
+   python -m spacy download en_core_web_sm
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Running the Application
+Start the FastAPI server:
+```bash
+uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## API Endpoint
+### Rank Candidates
+**Endpoint:** `POST /rank-candidates/`
 
-### `npm test`
+**Request:**
+- `jd`: Job Description PDF file (Required)
+- `resumes`: List of resume PDF files (Required)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Example (Postman Request Form-Data):**
+- `jd`: `job_description.pdf`
+- `resumes`: `resume1.pdf`, `resume2.pdf`
 
-### `npm run build`
+**Response Format:**
+```json
+{
+    "candidates": [
+        {
+            "Name": "Debojyoti Bhuinya",
+            "Resume": "/uploads/Debojyoti_Bhuinya_Resume.pdf",
+            "Confidence Score": 0.654,
+            "Rank": 1
+        },
+        {
+            "Name": "Gargi Chakraborty",
+            "Resume": "/uploads/RESUME.pdf",
+            "Confidence Score": 0.5622,
+            "Rank": 2
+        }
+    ]
+}
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Dependencies
+- `fastapi`
+- `uvicorn`
+- `sentence-transformers`
+- `PyPDF2`
+- `spaCy`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## License
+This project is licensed under the MIT License.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Author
+Your Name - [Your GitHub](https://github.com/yourusername)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
