@@ -38,6 +38,11 @@ This FastAPI-based application ranks job candidates by comparing their resumes a
    ```
 
 ## Running the Application
+Start the React application:
+```bash
+npm i
+npm start
+```
 Start the FastAPI server:
 ```bash
 uvicorn app:app --host 0.0.0.0 --port 8000 --reload
